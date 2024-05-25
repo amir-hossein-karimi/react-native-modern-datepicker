@@ -53,7 +53,7 @@ const Header = ({changeMonth, reverseHeader}) => {
         style={style.arrowWrapper}>
         <Image
           source={require('../../assets/arrow.png')}
-          style={[style.arrow, nextDisable && style.disableArrow]}
+          style={[style.arrow, reverseHeader && style.leftArrow, nextDisable && style.disableArrow]}
         />
       </TouchableOpacity>
       <View style={style.monthYearContainer}>
@@ -120,7 +120,7 @@ const Header = ({changeMonth, reverseHeader}) => {
         style={style.arrowWrapper}>
         <Image
           source={require('../../assets/arrow.png')}
-          style={[style.arrow, style.leftArrow, prevDisable && style.disableArrow]}
+          style={[style.arrow, !reverseHeader && style.leftArrow, prevDisable && style.disableArrow]}
         />
       </TouchableOpacity>
     </View>
