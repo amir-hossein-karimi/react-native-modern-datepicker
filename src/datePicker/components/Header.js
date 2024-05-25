@@ -4,7 +4,7 @@ import {View, TouchableOpacity, Text, Image, StyleSheet, Animated, I18nManager} 
 
 import {useCalendar} from '../DatePicker';
 
-const Header = ({changeMonth}) => {
+const Header = ({changeMonth, reverseHeader}) => {
   const {
     options,
     disableDateChange,
@@ -46,7 +46,7 @@ const Header = ({changeMonth}) => {
   };
 
   return (
-    <View style={[style.container, I18nManager.isRTL && style.reverseContainer]}>
+    <View style={[style.container, I18nManager.isRTL || reverseHeader && style.reverseContainer]}>
       <TouchableOpacity
         activeOpacity={0.7}
         onPress={() => !nextDisable && onChangeMonth('NEXT')}

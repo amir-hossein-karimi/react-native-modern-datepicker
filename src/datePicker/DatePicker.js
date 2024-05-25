@@ -66,7 +66,7 @@ const DatePicker = props => {
       case 'datepicker':
         return (
           <React.Fragment>
-            <Calendar />
+            <Calendar reverseHeader={props.reverseHeader} />
             <SelectMonth />
             <SelectTime />
           </React.Fragment>
@@ -74,7 +74,7 @@ const DatePicker = props => {
       case 'calendar':
         return (
           <React.Fragment>
-            <Calendar />
+            <Calendar reverseHeader={props.reverseHeader} />
             <SelectMonth />
           </React.Fragment>
         );
@@ -143,6 +143,7 @@ DatePicker.defaultProps = {
   mode: 'datepicker',
   minuteInterval: 5,
   style: {},
+  reverseHeader: false
 };
 
 DatePicker.propTypes = {
@@ -164,6 +165,7 @@ DatePicker.propTypes = {
   mode: PropTypes.oneOf(modeArray),
   minuteInterval: PropTypes.oneOf(minuteIntervalArray),
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  reverseHeader: PropTypes.bool
 };
 
 export {DatePicker, CalendarContext, useCalendar};
