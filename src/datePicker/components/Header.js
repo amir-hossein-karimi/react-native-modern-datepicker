@@ -62,7 +62,7 @@ const Header = ({changeMonth, reverseHeader}) => {
             style.monthYear,
             shownAnimation,
             style.activeMonthYear,
-            I18nManager.isRTL && style.reverseMonthYear,
+            I18nManager.isRTL || reverseHeader && style.reverseMonthYear,
           ]}>
           <TouchableOpacity
             activeOpacity={0.7}
@@ -85,7 +85,7 @@ const Header = ({changeMonth, reverseHeader}) => {
               activeOpacity={0.7}
               style={[
                 style.centerWrapper,
-                {marginRight: I18nManager.isRTL ? 0 : 5, marginLeft: I18nManager.isRTL ? 5 : 0},
+                {marginRight: I18nManager.isRTL || reverseHeader ? 0 : 5, marginLeft: I18nManager.isRTL || reverseHeader ? 5 : 0},
               ]}
               onPress={() =>
                 setMainState({
@@ -103,7 +103,7 @@ const Header = ({changeMonth, reverseHeader}) => {
             style.monthYear,
             hiddenAnimation,
             utils.flexDirection,
-            I18nManager.isRTL && style.reverseMonthYear,
+            I18nManager.isRTL || reverseHeader && style.reverseMonthYear,
           ]}>
           <Text style={style.headerText}>{utils.getMonthYearText(lastDate).split(' ')[0]}</Text>
           <Text style={style.headerText}>{utils.getMonthYearText(lastDate).split(' ')[1]}</Text>
